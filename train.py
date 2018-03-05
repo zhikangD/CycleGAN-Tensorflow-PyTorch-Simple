@@ -174,7 +174,7 @@ try:
             utils.mkdir(save_dir + '/')
             im.imwrite(im.immerge(sample_opt, 2, 3), '%s/Epoch_(%d)_(%dof%d).jpg' % (save_dir, epoch, it_epoch, batch_epoch))
 
-except Exception, e:
+except Exception as e:
     coord.request_stop(e)
 finally:
     print("Stop threads and close session!")
