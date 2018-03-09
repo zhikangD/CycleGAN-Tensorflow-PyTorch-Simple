@@ -141,9 +141,9 @@ try:
         b2a_sample_ipt = np.array(b2a_pool(list(b2a_opt)))
 
         # train G
-        g_summary_opt, llo = sess.run([g_summary, g_train_op], feed_dict={a_real: a_real_ipt, b_real: b_real_ipt})
+        g_summary_opt, _,llo = sess.run([g_summary, g_train_op, g_loss], feed_dict={a_real: a_real_ipt, b_real: b_real_ipt})
         summary_writer.add_summary(g_summary_opt, it)
-        print(g_summary_opt, llo)
+        print( llo)
         # train D_b
         d_summary_b_opt, _ = sess.run([d_summary_b, d_b_train_op], feed_dict={b_real: b_real_ipt, a2b_sample: a2b_sample_ipt})
         summary_writer.add_summary(d_summary_b_opt, it)
